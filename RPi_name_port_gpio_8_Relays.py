@@ -22,7 +22,7 @@ class device_handler(debounce_handler):
     """
     #TRIGGERS = {str(sys.argv[1]): int(sys.argv[2])}
     #TRIGGERS = {"office": 52000}
-    TRIGGERS = {"kitchen": 52000, "living room": 51000, "office": 53000, "room": 52002, "tv": 52003, "pc": 52004,
+    TRIGGERS = {"jarvis": 52000, "servos": 51000, "operation rights": 53000, "speed up": 52002, "slow down": 52003, "reset": 52004,
                 "xbox": 52005, "light": 52006}
 
     def act(self, client_address, state, name):
@@ -38,27 +38,27 @@ class device_handler(debounce_handler):
         #     state = True
         ############# Uncomment this code to revers the relay polarity ############
 
-        if name=="kitchen":
+        if name=="jarvis":
             GPIO.setmode(GPIO.BOARD) ## Use board pin numbering
             GPIO.setup(int(7), GPIO.OUT)   ## Setup GPIO Pin to OUTPUT
             GPIO.output(int(7), state) ## State is true/false
-        elif name =="living room":
+        elif name =="servos":
             GPIO.setmode(GPIO.BOARD) ## Use board pin numbering
             GPIO.setup(int(11), GPIO.OUT)   ## Setup GPIO Pin to OUTPUT
             GPIO.output(int(11), state) ## State is true/false
-        elif name =="office":
+        elif name =="operation rights":
             GPIO.setmode(GPIO.BOARD) ## Use board pin numbering
             GPIO.setup(int(13), GPIO.OUT)   ## Setup GPIO Pin to OUTPUT
             GPIO.output(int(13), state) ## State is true/false
-        elif name == "room":
+        elif name == "speed up":
             GPIO.setmode(GPIO.BOARD)  ## Use board pin numbering
             GPIO.setup(int(5), GPIO.OUT)  ## Setup GPIO Pin to OUTPUT
             GPIO.output(int(5), state)  ## State is true/false
-        elif name == "tv":
+        elif name == "slow down":
             GPIO.setmode(GPIO.BOARD)  ## Use board pin numbering
             GPIO.setup(int(15), GPIO.OUT)  ## Setup GPIO Pin to OUTPUT
             GPIO.output(int(15), state)  ## State is true/false
-        elif name == "pc":
+        elif name == "reset":
             GPIO.setmode(GPIO.BOARD)  ## Use board pin numbering
             GPIO.setup(int(8), GPIO.OUT)  ## Setup GPIO Pin to OUTPUT
             GPIO.output(int(8), state)  ## State is true/false
