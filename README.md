@@ -1,5 +1,7 @@
 # IOT-Pi3-Alexa-Automation
 
+*** Thanks to nassir-malik for code
+
 I updated the code. It is working with Echo dot Gen 3 and Gen 2
 
 Youtube tutorial https://www.youtube.com/watch?v=uS5dTx8vjq4
