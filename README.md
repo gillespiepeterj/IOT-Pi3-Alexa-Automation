@@ -1,6 +1,6 @@
 # IOT-Pi3-Alexa-Automation
 
-*** Thanks to nassir-malik for code
+*** Thanks to nassir-malik for project
 
 Youtube tutorial https://www.youtube.com/watch?v=uS5dTx8vjq4
 
