@@ -22,8 +22,8 @@ class device_handler(debounce_handler):
     """
     #TRIGGERS = {str(sys.argv[1]): int(sys.argv[2])}
     #TRIGGERS = {"office": 52000}
-    TRIGGERS = {"jarvis": 52000, "servos": 51000, "operation rights": 53000, "speed up": 52002, "slow down": 52003, "reset": 52004,
-                "xbox": 52005, "light": 52006}
+    TRIGGERS = {"robot": 52000, "servos": 51000, "operation rights": 53000, "pause": 52002, "demo": 52003, "pack": 52004,
+                "unpack": 52005, "available": 52006}
 
     def act(self, client_address, state, name):
         print("State", state, "from client @", client_address)
@@ -38,35 +38,44 @@ class device_handler(debounce_handler):
             state = True
         ############# Uncomment this code to revers the relay polarity ############
 
-        if name=="jarvis":
+        if name=="robot":
             GPIO.setmode(GPIO.BOARD) ## Use board pin numbering
             GPIO.setup(int(7), GPIO.OUT)   ## Setup GPIO Pin to OUTPUT
             GPIO.output(int(7), state) ## State is true/false
+            time.sleep(1)
+            state = True
+            GPIO.output(int(7), state)
         elif name =="servos":
             GPIO.setmode(GPIO.BOARD) ## Use board pin numbering
             GPIO.setup(int(11), GPIO.OUT)   ## Setup GPIO Pin to OUTPUT
             GPIO.output(int(11), state) ## State is true/false
+            time.sleep(1)
+            state = True
+            GPIO.output(int(11), state)
         elif name =="operation rights":
             GPIO.setmode(GPIO.BOARD) ## Use board pin numbering
             GPIO.setup(int(13), GPIO.OUT)   ## Setup GPIO Pin to OUTPUT
             GPIO.output(int(13), state) ## State is true/false
-        elif name == "speed up":
+        elif name == "pause":
             GPIO.setmode(GPIO.BOARD)  ## Use board pin numbering
             GPIO.setup(int(5), GPIO.OUT)  ## Setup GPIO Pin to OUTPUT
             GPIO.output(int(5), state)  ## State is true/false
-        elif name == "slow down":
+            time.sleep(1)
+            state = True
+            GPIO.output(int(5), state)
+        elif name == "demo":
             GPIO.setmode(GPIO.BOARD)  ## Use board pin numbering
             GPIO.setup(int(16), GPIO.OUT)  ## Setup GPIO Pin to OUTPUT
             GPIO.output(int(16), state)  ## State is true/false
-        elif name == "reset":
+        elif name == "pack":
             GPIO.setmode(GPIO.BOARD)  ## Use board pin numbering
             GPIO.setup(int(8), GPIO.OUT)  ## Setup GPIO Pin to OUTPUT
             GPIO.output(int(8), state)  ## State is true/false
-        elif name == "xbox":
+        elif name == "unpack":
             GPIO.setmode(GPIO.BOARD)  ## Use board pin numbering
             GPIO.setup(int(12), GPIO.OUT)  ## Setup GPIO Pin to OUTPUT
             GPIO.output(int(12), state)  ## State is true/false
-        elif name == "light":
+        elif name == "available":
             GPIO.setmode(GPIO.BOARD)  ## Use board pin numbering
             GPIO.setup(int(10), GPIO.OUT)  ## Setup GPIO Pin to OUTPUT
             GPIO.output(int(10), state)  ## State is true/false
